@@ -1,0 +1,12 @@
+$app-menuTextMarginLeft: 5px;
+$app-topbarHeight: 48px;
+// In case of chrome. 8px margin
+$app-viewportMargin: 8px;
+$app-contentHeight: calc(100vh - (#{$app-topbarHeight} + 2 * #{$app-viewportMargin}));
+
+:export {
+	menuTextMarginLeft: $app-menuTextMarginLeft;
+	topbarHeight: $app-topbarHeight;
+	// In case of chrome. 8px margin
+	viewportMargin: $app-viewportMargin;
+}

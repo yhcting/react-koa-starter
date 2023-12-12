@@ -1,0 +1,110 @@
+{
+	// Use IntelliSense to learn about possible Node.js debug attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch dev",
+			//"preLaunchTask": "npm: build",
+			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/node",
+			"program": "${workspaceRoot}/src/index.ts",
+			"cwd": "${workspaceRoot}",
+			"sourceMaps": true,
+			"stopOnEntry": false,
+			"runtimeArgs": [
+				"--nolazy",
+				"--preserve-symlinks"
+			],
+			"env": {
+				"TS_NODE_BASEURL": "dist",
+				"NODE_ENV": "development,strict"
+			},
+			"outFiles": ["${workspaceRoot}/dist/**/*.js"],
+			"internalConsoleOptions": "openOnSessionStart"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch prod",
+			//"preLaunchTask": "npm: build",
+			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/node",
+			"program": "${workspaceRoot}/src/index.ts",
+			"cwd": "${workspaceRoot}",
+			"sourceMaps": true,
+			"stopOnEntry": false,
+			"runtimeArgs": [
+				"--nolazy",
+				"--preserve-symlinks"
+			],
+			"env": {
+				"TS_NODE_BASEURL": "dist",
+				"NODE_ENV": "production"
+			},
+			"outFiles": ["${workspaceRoot}/dist/**/*.js"],
+			"internalConsoleOptions": "openOnSessionStart"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "UnitTest: Mocha Current File",
+			"program": "${workspaceFolder}/node_modules/.bin/_mocha",
+			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/node",
+			"runtimeArgs": [
+				"--preserve-symlinks"
+			],
+			"args": [
+				"-r",
+				"ts-node/register",
+				"--no-timeouts",
+				"--colors",
+				// "src/app/api/grp.spec.ts"
+				"${file}"
+			],
+			"env": {
+				"TS_NODE_BASEURL": "dist",
+				"NODE_ENV": "unittest",
+				"NODE_EXEC": "tsnode"
+			},
+			"console": "integratedTerminal",
+			"sourceMaps": true,
+			"skipFiles": [
+				"node_modules/**/*.js",
+				"<node_internals>/**/*.js"
+			],
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "RestTest: Mocha Current File",
+			"program": "${workspaceFolder}/node_modules/.bin/_mocha",
+			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/node",
+			"runtimeArgs": [
+				"--preserve-symlinks"
+			],
+			"args": [
+				"-r",
+				"ts-node/register",
+				"--no-timeouts",
+				"--colors",
+				// "src/app/api/grp.spec.ts"
+				"${file}"
+			],
+			"env": {
+				"TS_NODE_BASEURL": "dist",
+				"NODE_ENV": "resttest",
+				"NODE_EXEC": "tsnode"
+			},
+			"console": "integratedTerminal",
+			"sourceMaps": true,
+			"skipFiles": [
+				"node_modules/**/*.js",
+				"<node_internals>/**/*.js"
+			],
+			"internalConsoleOptions": "neverOpen"
+		}
+	]
+}

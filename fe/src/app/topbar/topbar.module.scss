@@ -1,0 +1,124 @@
+@import '../../styles/app';
+
+$bgcolor: $md-grey-900;
+$bghover: $md-grey-400;
+$bgdisabled: $bgcolor;
+$bgselected: $md-grey-600;
+$height: $app-topbarHeight;
+
+@mixin cleanButton() {
+	text-align: center;
+	background-color: $bgcolor;
+	border: none;
+	&:focus {
+		outline: none;
+	}
+}
+
+.menuItemText {
+	margin-left: $app-menuTextMarginLeft;
+}
+
+.root {
+	position: relative;
+
+	.topbar {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		height: $height;
+		background-color: $bgcolor;
+		padding: 0 20px 0 16px;
+
+		.appname {
+			width: 150px;
+			height: $height - 8px;
+			line-height: $height - 8px;
+			font-size: 26px;
+			font-weight: 900;
+			text-align: center;
+			text-decoration: none;
+			text-transform: none;
+			color: $md-grey-100;
+			background-color: $bgcolor;
+			&:hover {
+				background-color: $bghover;
+			}
+		} // appname
+
+		.pageGroup {
+			.pagebtn {
+				font-size: 16px;
+				font-weight: bold;
+				text-align: center;
+				text-decoration: none;
+				text-transform: none;
+				color: $md-yellow-100;
+				background-color: transparent;
+				&:hover {
+					background-color: $bghover;
+				}
+				&:disabled {
+					color: $md-grey-400;
+					background-color: $bgdisabled;
+					&:hover {
+					background-color: $bgdisabled;
+					}
+				}
+			}
+
+			.pagebtnSelected {
+				@extend .pagebtn;
+				background-color: $bgselected;
+				&:hover {
+					background-color: $bghover;
+				}
+			}
+		} // pageGroup
+
+		.rightSide {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin: auto 0 auto auto;
+
+			.account {
+				@include app-textStatic();
+				margin-left: 3px;
+				color: $md-grey-100;
+			}
+
+			.langGroup {
+				display: flex;
+				flex-direction: column;
+
+				.langbtn {
+					@include cleanButton();
+
+					max-height: calc($height / 2);
+					min-height: calc($height / 2);
+					font-size: 12px;
+					color: $md-grey-100;
+					&:hover {
+						background-color: $bghover;
+					}
+					&:disabled {
+						color: $md-grey-600;
+						background-color: $bgcolor;
+					}
+				}
+
+				.langbtnSelected {
+					@extend .langbtn;
+					background-color: $bgselected;
+				}
+			}
+		} // rightSide
+	} // topbar
+
+	.progressbar {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+	}
+}

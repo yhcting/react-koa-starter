@@ -1,0 +1,20 @@
+@import './styles/app';
+// $body-bg: #000;
+
+// Set height of root as full height of browser.
+// TODO: Any better way instead of hard-coded pixel calculation?
+// To handle 8px margin at browser(chrome, explorer and so one) for 100% height
+/*
+html {
+	height: calc(100% - 16px);
+}
+body, #root {
+	height: 100%;
+}
+*/
+
+/*
+#root {
+	background-color: red;
+}
+*/

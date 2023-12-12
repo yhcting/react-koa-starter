@@ -1,0 +1,30 @@
+# Compiled output
+/build/
+/dist/
+
+# Link to frontend
+/fe
+
+# Dependencies
+/node_modules/
+
+# Auto-generated
+/typedoc/
+/coverage/
+
+# Docker volumn written by container
+/docker/volw/
+
+# Test
+/temp/
+/tmpbak/
+
+# Profiling
+/isolate-*
+/prof/
+
+.*
+!.eslintrc.js
+!.editorconfig
+!.gitignore
+!.vscode
